@@ -6,8 +6,11 @@
 package servlets;
 
 import entity.Author;
+import entity.Book;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import session.AuthorFacade;
+import session.BookFacade;
 
 @WebServlet(name = "BookServlet", urlPatterns = {
     "/newBook", 
@@ -26,6 +30,7 @@ import session.AuthorFacade;
 })
 public class BookServlet extends HttpServlet {
     @EJB private AuthorFacade authorFacade;
+    @EJB private BookFacade bookFacade;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -33,12 +38,29 @@ public class BookServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String path = request.getServletPath();
         switch (path) {
-            case "/newbook":
+            case "/newBook":
                 request.setAttribute("listAuthors", authorFacade.findAll());
                 request.getRequestDispatcher("/WEB-INF/createBook.jsp").forward(request, response);
                 break;
             case "/createBook":
-                
+                String title = request.getParameter("title");
+                String[] authors = request.getParameterValues("authors");
+                List<Author> listBookAuthors = new ArrayList<>();
+                for (int i = 0; i < authors.length; i++) {
+                    listBookAuthors.add(authorFacade.find(Long.parseLong(authors[i])));
+                } 
+                Book book = new Book();
+                book.setTitle(title);
+                book.setAuthors(listBookAuthors);
+                bookFacade.create(book);
+                for (int i = 0; i < listBookAuthors.size(); i++) {
+                    Author a = listBookAuthors.get(i);
+                    a.getBooks().add(book);
+                    authorFacade.edit(a);
+                }
+                request.setAttribute("listBooks", bookFacade.findAll());
+                request.setAttribute("info", "The book has been created successfully");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
                 break;
             case "/newAuthor":
                 request.getRequestDispatcher("/WEB-INF/createAuthor.jsp").forward(request, response);
@@ -56,7 +78,8 @@ public class BookServlet extends HttpServlet {
                 
                 break;
             case "/listBooks":
-                
+                request.setAttribute("listBooks", bookFacade.findAll());
+                request.getRequestDispatcher("/WEB-INF/listBooks.jsp").forward(request, response);
                 break;
             
         }

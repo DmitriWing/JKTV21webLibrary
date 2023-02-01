@@ -1,9 +1,3 @@
-<%-- 
-    Document   : createAuthor
-    Created on : Jan 30, 2023, 10:10:14 AM
-    Author     : pupil
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,23 +8,26 @@
         <title>Create Book</title>
     </head>
     <body>
-        <h1 class="h1">Create book</h1>
-        <form action="createBook" method="POST">
-            <div class="form-line m-2">
-                <label for="title">Title</label>
-                <input id="title" name="title" type="text"></input>
-            </div>
-            <div class="form-line m-2">
-                <label for="authors">Authors</label>
-                <select id="authors" name="authors" multiple="true">
-                    <c:forEach var="author" items="${listAuthors}">
-                        <option value="${author.id}">${author.name} ${author.lastName}</option>
-                    </c:forEach>
-                </select>
-            </div>
-            <div class="form-line m-2">
-                <input type="submit" value="Create">
-            </div>
-        </form>
+        <div class="container">
+            <h1 class="h1">Create book</h1>
+            <a class="nav-link active h3" href="index.jsp">Home</a><hr>
+
+            <form action="createBook" method="POST">
+                <div class="mb-3" >
+                  <label for="title" class="form-label">Book Title</label>
+                  <input type="text" class="form-control" id="title" name="title">
+                  <!--<div id="emailHelp" class="form-text">Мы никогда никому не передадим вашу электронную почту.</div>-->
+                </div>
+                <div class="mb-3">
+                  <label for="authors" class="form-label">Aothor</label>
+                    <select id="authors" name="authors" multiple="true"  class="form-select">
+                        <c:forEach var="author" items="${listAuthors}">
+                            <option value="${author.id}">${author.name} ${author.lastName}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-outline-info">Create</button>
+            </form>
+        </div>
     </body>
 </html>

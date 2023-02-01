@@ -21,6 +21,9 @@
                 <a href="newBook" class="btn btn-success m-2 col-3">Create new book</a>
                 <a href="newAuthor" class="btn btn-success m-2 col-3">Create new author</a>
                 <a href="listBooks" class="btn btn-success m-2 col-3">Books list</a>
+                <a href="newReader" class="btn btn-success m-2 col-3">Create reader</a>
+                <a href="listReaders" class="btn btn-success m-2 col-3">Readers list</a>
+                <a href="takeOnBook" class="btn btn-success m-2 col-3">Take Book</a>
             </nav>
             
             <div class="row">

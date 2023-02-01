@@ -11,15 +11,15 @@ public class Reader implements Serializable{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String lastName;
+    private String lastname;
     private String phone;
 
     public Reader() {
     }
 
-    public Reader(String name, String lastName, String phone) {
+    public Reader(String name, String lastname, String phone) {
         this.name = name;
-        this.lastName = lastName;
+        this.lastname = lastname;
         this.phone = phone;
     }
 
@@ -39,12 +39,12 @@ public class Reader implements Serializable{
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getPhone() {
@@ -60,8 +60,12 @@ public class Reader implements Serializable{
                 + "name=" 
                 + name 
                 + ", lastName=" 
-                + lastName + '}';
+                + lastname + '}';
     }
+
+//    public void setFirstname(String parameter) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     
 }

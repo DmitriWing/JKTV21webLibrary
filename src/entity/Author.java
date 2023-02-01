@@ -14,7 +14,7 @@ public class Author implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String lastName;
+    private String lastname;
     @OneToMany
     private List<Book>books;
 
@@ -22,9 +22,9 @@ public class Author implements Serializable {
         books=new ArrayList<>();
     }
 
-    public Author(String name, String lastName) {
+    public Author(String name, String lastname) {
         this.name = name;
-        this.lastName = lastName;
+        this.lastname = lastname;
     }
 //  -------------------------------- // rbm -> insert code... getters and setters, choose all, choose incapsulate
     public Long getId() {
@@ -36,11 +36,11 @@ public class Author implements Serializable {
     }
     
     public String getlastName() {
-        return lastName;
+        return lastname;
     }
 
     public void setlastName(String lastName) {
-        this.lastName = lastName;
+        this.lastname = lastName;
     }
 
     public String getName() {
@@ -68,7 +68,7 @@ public class Author implements Serializable {
                 + "name=" 
                 + name 
                 + ", lastName=" 
-                + lastName 
+                + lastname 
                 + '}';
         
     }
