@@ -19,7 +19,7 @@
                   <!--<div id="emailHelp" class="form-text">Мы никогда никому не передадим вашу электронную почту.</div>-->
                 </div>
                 <div class="mb-3">
-                  <label for="authors" class="form-label">Aothor</label>
+                  <label for="authors" class="form-label">Author</label>
                     <select id="authors" name="authors" multiple="true"  class="form-select">
                         <c:forEach var="author" items="${listAuthors}">
                             <option value="${author.id}">${author.name} ${author.lastName}</option>
