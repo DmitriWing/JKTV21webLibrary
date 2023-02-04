@@ -1,6 +1,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@include file="jspf/header.jspf" %>
 
 <h1 class="h2">Return Book</h1>
@@ -21,6 +22,7 @@
                     <p class="card-text">Taken on: 
                         <fmt:formatDate value="${history.takeOnBook}" pattern="dd/MM/yy HH:mm" />
                     </p>
+   
                   <!--<a href="#" class="btn btn-primary stretched-link">Return</a>-->
                 </div>
               </div>

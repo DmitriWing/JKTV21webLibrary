@@ -23,8 +23,6 @@ import session.BookFacade;
 @WebServlet(name = "BookServlet", urlPatterns = {
     "/newBook", 
     "/createBook", 
-    "/newAuthor", 
-    "/createAuthor", 
     "/listBooks", 
     
 })
@@ -62,21 +60,21 @@ public class BookServlet extends HttpServlet {
                 request.setAttribute("info", "The book has been created successfully");
                 request.getRequestDispatcher("index.jsp").forward(request, response);
                 break;
-            case "/newAuthor":
-                request.getRequestDispatcher("/WEB-INF/createAuthor.jsp").forward(request, response);
-                
-                break;
-            case "/createAuthor":
-                String name = request.getParameter("name");
-                String lastname = request.getParameter("lastname");
-                Author author = new Author();
-                author.setName(name);
-                author.setlastName(lastname);
-                authorFacade.create(author);
-                request.setAttribute("info", "Author has been created successfully");
-                request.getRequestDispatcher("index.jsp").forward(request, response);
-                
-                break;
+//            case "/newAuthor":
+//                request.getRequestDispatcher("/WEB-INF/createAuthor.jsp").forward(request, response);
+//                
+//                break;
+//            case "/createAuthor":
+//                String name = request.getParameter("name");
+//                String lastname = request.getParameter("lastname");
+//                Author author = new Author();
+//                author.setName(name);
+//                author.setlastName(lastname);
+//                authorFacade.create(author);
+//                request.setAttribute("info", "Author has been created successfully");
+//                request.getRequestDispatcher("index.jsp").forward(request, response);
+//                
+//                break;
             case "/listBooks":
                 request.setAttribute("listBooks", bookFacade.findAll());
                 request.getRequestDispatcher("/WEB-INF/listBooks.jsp").forward(request, response);
