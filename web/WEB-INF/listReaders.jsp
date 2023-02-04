@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="jspf/header.jspf" %>
 
-        <h1 class="h2">All our books</h1>
+        <h1 class="h2">Our Readers</h1>
         <hr>
         
         <ol class="list-group list-group-numbered">

@@ -33,4 +33,11 @@ public class HistoryFacade extends AbstractFacade<History> {
         return listTakedBooks;
     }
     
+    public List<History> getHistory() {
+        
+        List<History> listTakedBooks = em.createQuery("SELECT h FROM History h ORDER BY h.takeOnBook DESC")
+                .getResultList();
+        return listTakedBooks;
+    }
+    
 }

@@ -5,12 +5,10 @@
             <h1 class="h2">Take on Book</h1>
             <hr>
 
-            <form action="createHistory" method="POST">
-                
-                
+            <form action="createTakeOnBook" method="POST">
                 <div class="mb-3">
                   <label for="readerId" class="form-label">Reader</label>
-                    <select id="readerId" name="readerId" multiple="true"  class="form-select">
+                    <select id="readerId" name="readerId" class="form-select">
                         <c:forEach var="reader" items="${listReaders}">
                             <option value="${reader.id}">${reader.name} ${reader.lastname}</option>
                         </c:forEach>
@@ -19,13 +17,13 @@
                     
                 <div class="mb-3">
                   <label for="bookId" class="form-label">Book</label>
-                    <select id="bookId" name="bookId" multiple="true"  class="form-select">
+                    <select id="bookId" name="bookId" class="form-select">
                         <c:forEach var="book" items="${listBooks}">
                         <option value="${book.id}">
-                            ${book.title}; 
+                            ${book.title}, 
                             <c:forEach var="author" items="${book.authors}">
                                 ${author.name} ${author.lastName}
-                            </c:forEach>, 
+                            </c:forEach>
                         </option>
                         </c:forEach>
                     </select>

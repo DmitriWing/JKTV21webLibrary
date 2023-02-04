@@ -39,6 +39,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <li><a class="dropdown-item" href="listBooks">Book</a></li>
                               <li><a class="dropdown-item" href="listReaders">Reader</a></li>
+                              <li><a class="dropdown-item" href="listAuthors">Authors</a></li>
                             </ul>
                           </li>
                           
@@ -47,9 +48,9 @@
                               Service
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item" href="takeOnBook">Take on book</a></li>
+                              <li><a class="dropdown-item" href="getTakeOnBook">Take on book</a></li>
                               <li><a class="dropdown-item" href="getReturnBook">Return book</a></li>
-                              <li><a class="dropdown-item" href="bookTurnover">History</a></li>
+                              <li><a class="dropdown-item" href="bookTurnover">Book turnover</a></li>
                             </ul>
                           </li>
                         
